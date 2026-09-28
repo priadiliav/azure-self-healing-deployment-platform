@@ -109,7 +109,7 @@ resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
         }
         {
           name: 'APP_SERVICE_RESOURCE_ID'
-          value: resourceId('Microsoft.Web/sites', monitoredAppServiceName)
+          value: resourceId(monitoredResourceGroup, 'Microsoft.Web/sites', monitoredAppServiceName)
         }
       ]
     }
@@ -161,8 +161,8 @@ resource failedRequestsAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
     scopes: [
       monitoredAppInsights.id
     ]
-    evaluationFrequency: 'PT5M'
-    windowSize: 'PT5M'
+    evaluationFrequency: 'PT1M'
+    windowSize: 'PT1M'
     autoMitigate: true
     criteria: {
       'odata.type': 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'
