@@ -1,8 +1,12 @@
 using 'main.bicep'
 
 param functionAppName = 'phapp-selfhealer'
-param appServiceName = 'phapp-api-dev-kglcsej7bua2e'
+param storageAccountName = 'phapp-selfhealer-sa'
+param workspaceName = 'phapp-selfhealer-law'
+param applicationInsightsName = 'phapp-selfhealer-ai'
+param hostingPlanName = 'phapp-selfhealer-plan'
+param actionGroupName = 'phapp-selfhealer-ag'
 
-// TODO: set this to the name of the Application Insights resource that monitors
-// phapp-api-dev-kglcsej7bua2e (the app being healed) - not the healer's own App Insights.
+param monitoredResourceGroup = '<fill-in-monitored-resource-group>'
+param monitoredAppServiceName = '<fill-in-monitored-app-service-name>'
 param monitoredAppInsightsName = '<fill-in-monitored-app-insights-name>'

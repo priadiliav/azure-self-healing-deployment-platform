@@ -32,9 +32,7 @@ public class SelfHealerHttpTrigger(
         }
 
         var credential = new DefaultAzureCredential();
-        
         var armClient = new ArmClient(credential);
-        
         var resourceId = new ResourceIdentifier(
             Environment.GetEnvironmentVariable(
                 "APP_SERVICE_RESOURCE_ID")!);
@@ -74,7 +72,8 @@ public class SelfHealerHttpTrigger(
         }
         catch (JsonException)
         {
-            // Not a Common Alert Schema payload (e.g. a manual test call) - fall through and heal.
+            // Not a Common Alert Schema payload (e.g. a manual test call) - 
+            // fall through and heal.
         }
 
         return null;
